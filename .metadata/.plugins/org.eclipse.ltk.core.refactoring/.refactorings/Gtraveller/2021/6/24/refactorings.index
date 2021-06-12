@@ -1,0 +1,14 @@
+1623386024702	Rename resource 'new_reserva.xhtml'
+1623388647093	Copy compilation unit
+1623388735537	Delete element
+1623388746735	Delete element
+1623390151270	Move 'resources' to 'webapp'
+1623390169675	Move 'style.css' to 'css'
+1623394198050	Extract Class...
+1623400027444	Extract local variable 'jpql'
+1623400086997	Extract local variable 'createQuery'
+1623403466646	Encapsulate field 'id'
+1623437555320	Rename type 'userBean'
+1623446228057	Extract local variable 'currentInstance'
+1623447094124	Rename resource 'user.html'
+1623456342835	Extract local variable 'currentInstance'

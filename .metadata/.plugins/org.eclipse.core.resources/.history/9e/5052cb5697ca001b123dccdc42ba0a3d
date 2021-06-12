@@ -1,0 +1,34 @@
+package br.com.fiap.rest;
+
+import java.util.List;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import br.com.fiap.dao.ReservaDAO;
+import br.com.fiap.model.Reserva;
+
+@Path("/reservas")
+public class ReservaEndpoint {
+	
+	private ReservaDAO dao = new ReservaDAO();
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Reserva> index() {
+		return dao.getAll();
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Reserva create(Reserva reserva) {
+		dao.save(reserva);
+		return reserva;
+	}
+	
+}

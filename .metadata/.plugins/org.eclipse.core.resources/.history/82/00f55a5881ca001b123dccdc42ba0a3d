@@ -1,0 +1,69 @@
+package br.com.fiap.beans;
+
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
+public class ReservaBean {
+	
+	private Reserva reserva = new Reserva();
+
+	public void save() {
+		System.out.println(this);
+	}
+	
+	public String getNome() {
+		return reserva.getNome();
+	}
+
+	public void setNome(String nome) {
+		this.reserva.setNome(nome);
+	}
+
+	public String getEmail() {
+		return reserva.getEmail();
+	}
+
+	public void setEmail(String email) {
+		this.reserva.setEmail(email);
+	}
+
+	public String getDtNascimento() {
+		return reserva.getDtNascimento();
+	}
+
+	public void setDtNascimento(String dtNascimento) {
+		this.reserva.setDtNascimento(dtNascimento);
+	}
+
+	public String getTelefone() {
+		return reserva.getTelefone();
+	}
+
+	public void setTelefone(String telefone) {
+		this.reserva.setTelefone(telefone);
+	}
+
+	public String getCartao() {
+		return reserva.getCartao();
+	}
+
+	public void setCartao(String cartao) {
+		this.reserva.setCartao(cartao);
+	}
+
+	public String getReserva() {
+		return reserva.getReserva();
+	}
+
+	public void setReserva(String reserva) {
+		this.reserva.setReserva(reserva);
+	}
+
+	@Override
+	public String toString() {
+		return "ReservaBean [nome=" + reserva.getNome() + ", email=" + reserva.getEmail() + ", dtNascimento=" + reserva.getDtNascimento() + ", telefone="
+				+ reserva.getTelefone() + ", cartao=" + reserva.getCartao() + ", reserva=" + reserva.getReserva() + "]";
+	}
+	
+
+}

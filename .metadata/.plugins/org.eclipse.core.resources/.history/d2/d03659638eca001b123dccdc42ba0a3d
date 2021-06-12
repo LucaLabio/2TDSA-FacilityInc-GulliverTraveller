@@ -1,0 +1,32 @@
+package br.com.fiap.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import br.com.fiap.model.Reserva;
+
+public class ReservaDAO {
+	
+	private EntityManager manager;
+
+	public void save(Reserva reserva) {
+		EntityManagerFactory factory = 
+				Persistence.createEntityManagerFactory("Gtraveller-persistence-unit");
+		EntityManager manager = factory.createEntityManager();
+		
+		manager.getTransaction().begin();
+		manager.persist(reserva);
+		manager.getTransaction().commit();
+		
+		manager.clear();
+	}
+
+	public List<Reserva> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

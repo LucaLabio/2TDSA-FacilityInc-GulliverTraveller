@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="content">
+		<p:messages><p:autoUpdate /></p:messages>
+		<p:card class="card-form">
+			<f:facet name="title">
+        Nova reserva
+		</f:facet>
+			<h:form>
+				<div class="ui-fluid p-formgrid p-grid">
+					<h2>Dados pessoais</h2>
+					<div class="p-field p-grid">
+						<label for="email" class="p-col-fixed" style="width: 100px">E-mail</label>
+						<div class="p-col">
+							<p:inputText id="email" value="#{reservaBean.reserva.email}" validatorMessage="O email não existe">
+								<f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" />
+								<f:ajax event="blur" render="messages" />
+							</p:inputText>
+						</div>
+					</div>
+					<div class="p-field p-grid">
+						<label for="dtnascimento" class="p-col-fixed" style="width: 100px">Data
+							de nascimento</label>
+						<div class="p-col">
+							<p:inputText id="dtnascimento" placeholder="dd/mm/aa" value="#{reservaBean.reserva.dtNascimento}" required="true" requiredMessage="Campo 'Data de nascimento' é obrigatório">
+								<f:ajax event="blur" render="messages" />
+							</p:inputText>
+						</div>
+					</div>
+				</div>
+			</h:form>
+
+			<f:facet name="footer">
+				<p:commandButton icon="pi pi-check" value="Reservar" styleClass="rounded-button" action="#{reservaBean.save}" >
+					<f:ajax execute="@form" render="messages" />
+				</p:commandButton>
+			</f:facet>
+
+		</p:card>
+		
+	</ui:define>
+</ui:composition>
+
+
+
+</html>

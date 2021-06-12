@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Nova Reserva</title>
+</h:head>
+<h:body>
+
+	<div class="card">
+		<p:tabMenu activeIndex="#{param.i}">
+			<p:menuitem value="Home" outcome="index.xhtml"
+				icon="pi pi-fw pi-home">
+				<f:param name="i" value="0" />
+			</p:menuitem>
+			<p:menuitem value="Reserva" outcome="nova_reserva.xhtml"
+				icon="pi pi-fw pi-briefcase">
+				<f:param name="i" value="1" />
+			</p:menuitem>
+			<p:menuitem value="Perfil" outcome="index.xhtml"
+				icon="pi pi-fw pi-user">
+				<f:param name="i" value="2" />
+			</p:menuitem>
+		</p:tabMenu>
+	</div>
+
+	<p:card style="width: 25em">
+		<f:facet name="title">
+        Nova reserva
+		</f:facet>
+
+		<h:form>
+			<h2>Dados pessoais</h2>
+			<div class="p-field p-grid">
+				<label for="nome" class="p-col-fixed" style="width: 100px">Nome completo</label>
+				<div class="p-col">
+					<p:inputText id="nome" type="text" />
+				</div>
+			</div>
+			<div class="p-field p-grid">
+				<label for="email" class="p-col-fixed" style="width: 100px">E-mail</label>
+				<div class="p-col">
+					<p:inputText id="email" type="text" />
+				</div>
+			</div>
+			<div class="p-field p-grid">
+				<label for="dtnascimento" class="p-col-fixed" style="width: 100px">Data de nascimento</label>
+				<div class="p-col">
+					<p:inputText id="dtnascimento" type="date" />
+				</div>
+			</div>
+			<div class="p-field p-grid">
+				<label for="telefone" class="p-col-fixed" style="width: 100px">Telefone</label>
+				<div class="p-col">
+					<p:inputText id="telefone" type="text" />
+				</div>
+			</div>
+			<h2>Método de pagamento</h2>
+			<div class="p-field p-grid">
+				<label for="cartao" class="p-col-fixed" style="width: 100px">Cartão de crédito</label>
+				<div class="p-col">
+					<p:inputText id="cartao" type="text" />
+				</div>
+			</div>
+			<h2>Reserva</h2>
+			<div class="card">
+				<h:form>
+					<h5 class="p-mt-0">Basic</h5>
+					<p:selectOneRadio id="console" value="#{radioView.console}"
+						unselectable="true">
+						<f:selectItem itemLabel="Option1" itemValue="Option1" />
+						<f:selectItem itemLabel="Option2" itemValue="Option2" />
+						<f:selectItem itemLabel="Option3" itemValue="Option3" />
+					</p:selectOneRadio>
+
+					<h5>Grid</h5>
+					<p:selectOneRadio id="city" value="#{radioView.city}" layout="grid"
+						columns="3" styleClass="grid-radio">
+						<f:selectItems value="#{radioView.cities}" var="c"
+							itemLabel="#{city}" itemValue="#{city}" />
+					</p:selectOneRadio>
+
+					<h5>Responsive</h5>
+					<p:selectOneRadio id="city2" value="#{radioView.city2}"
+						layout="responsive" columns="3">
+						<f:selectItems value="#{radioView.cities}" var="c"
+							itemLabel="#{city}" itemValue="#{city}" />
+					</p:selectOneRadio>
+
+				</h:form>
+			</div>
+
+		</h:form>
+
+		<f:facet name="footer">
+			<p:commandButton icon="pi pi-check" value="Save" />
+			<p:commandButton icon="pi pi-times" value="Cancel" styleClass="ui-button-secondary" style="margin-left: .5em" />
+		</f:facet>
+
+	</p:card>
+
+</h:body>
+</html>

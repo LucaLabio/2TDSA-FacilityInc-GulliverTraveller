@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Traveller - Login</title>
+</h:head>
+<h:body>
+
+<div class="card">
+    <p:tabMenu activeIndex="#{param.i}">
+        <p:menuitem value="Hotéis" outcome="index.xhtml" icon="pi pi-fw pi-book">
+            <f:param name="i" value="0"/>
+        </p:menuitem>
+        <p:menuitem value="Reserva" outcome="reservas.xhtml" icon="pi pi-fw pi-key">
+            <f:param name="i" value="1"/>
+        </p:menuitem>
+        <p:menuitem value="Perfil" outcome="perfil.xhtml" icon="pi pi-fw pi-user">
+            <f:param name="i" value="2"/>
+        </p:menuitem>
+    </p:tabMenu>
+</div>
+
+<p:messages id="messages"> <p:autoUpdate/> </p:messages>
+
+<div style="display:flex; justify-content: space-around; margin-top: 100px;">
+<p:card style="width: 25rem; margin-bottom: 2em;">
+    <f:facet name="title">
+        Login
+    </f:facet>
+    
+    <h:form>
+    <div class="card">
+        <div class="p-grid ui-fluid">
+            <div class="p-col-12 p-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon">@</span>
+                    <p:inputText placeholder="E-mail">
+                    	<f:validateLength minimum="10" />
+                    	<f:ajax event="blur" render="messages" />
+                    </p:inputText>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-4" style="margin-top: 20px;">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                    <p:inputText placeholder="Senha">
+                    	<f:validateLength minimum="1" />
+                    	<f:ajax event="blur" render="messages" />
+                    </p:inputText>
+                </div>
+            </div>
+        </div>
+   </div>
+   
+   <p:commandButton icon="pi pi-check" value="Entrar" style="margin-top: 30px;"/>
+   <p:commandButton icon="pi pi-times" value="Cancelar" styleClass="ui-button-secondary" style="margin-left: .5em"/>
+   
+</h:form>
+
+</p:card>
+
+</div>
+
+</h:body>
+</html>

@@ -1,0 +1,29 @@
+package br.com.fiap.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+
+import br.com.fiap.model.Reserva;
+
+public class ReservaDAO {
+	
+	private EntityManager manager;
+
+	public void save(Reserva reserva) {
+
+		
+		manager.getTransaction().begin();
+		manager.persist(reserva);
+		manager.getTransaction().commit();
+		
+		manager.clear();
+	}
+
+	public List<Reserva> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

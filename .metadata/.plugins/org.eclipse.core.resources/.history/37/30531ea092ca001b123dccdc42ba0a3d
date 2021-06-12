@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+body{
+	background-color: #eee;
+}
+.card-form{
+	width: 50em;
+	margin: 10px auto;
+}
+.reserva-list-item{
+	display:flex;
+	align-items: center;
+	padding: 1rem;
+}
+.reserva-list-detail{
+	flex: 1 1 0;
+}
+.reserva-name{
+	font-size: 1rem;
+	font-weight: 700;
+}
+.reserva-description{
+	margin: 0 0 1rem 0;
+}
+.reserva-list-action{
+	display: flex;
+	flex-direction: column;
+}
+.reserva-price{
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: .5rem;
+	align-self: flex-end;
+}
+reserva-list-item img{
+	width: 150px;
+	box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+	margin-right: 2rem;
+}

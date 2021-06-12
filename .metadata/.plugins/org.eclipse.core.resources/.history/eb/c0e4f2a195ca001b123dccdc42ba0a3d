@@ -1,0 +1,20 @@
+package br.com.fiap.rest;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+import br.com.fiap.dao.ReservaDAO;
+import br.com.fiap.model.Reserva;
+
+@Path("/reservas")
+public class ReservaEndpoint {
+	
+	private ReservaDAO dao = new ReservaDAO();
+	
+	@GET
+	public List<Reserva> index() {
+		return dao.getAll();
+	}
+}

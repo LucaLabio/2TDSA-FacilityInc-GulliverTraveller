@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="content">
+			<p:messages id="messages"><p:autoUpdate /></p:messages>
+	
+		<p:card class="card-form">
+			<f:facet name="title">
+        Nova reserva
+		</f:facet>
+			<h:form>
+				<div class="ui-fluid p-formgrid p-grid">
+					<h2>Dados pessoais</h2>
+					<div class="p-field p-grid">
+						<label for="nome" class="p-col-fixed" style="width: 100px">Nome
+							completo</label>
+						<div class="p-col">
+							<p:inputText id="nome" value="#{reservaBean.reserva.nome}" required="true" requiredMessage="Campo 'Nome completo' é obrigatório">
+								<f:ajax event="blur" render="messages" />
+							</p:inputText>
+						</div>
+					</div>
+					<div class="p-field p-grid">
+						<label for="email" class="p-col-fixed" style="width: 100px">E-mail</label>
+						<div class="p-col">
+							<p:inputText id="email" value="#{reservaBean.reserva.email}" validatorMessage="O email não existe">
+								<f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)" />
+								<f:ajax event="blur" render="messages" />
+							</p:inputText>
+						</div>
+					</div>
+					<div class="p-field p-grid">
+						<label for="dtnascimento" class="p-col-fixed" style="width: 100px">Data
+							de nascimento</label>
+						<div class="p-col">
+							<p:inputText id="dtnascimento" placeholder="dd/mm/aa" value="#{reservaBean.reserva.dtNascimento}" required="true" requiredMessage="Campo 'Data de nascimento' é obrigatório">
+								<f:ajax event="blur" render="messages" />
+							</p:inputText>
+						</div>
+					</div>
+					<div class="p-field p-grid">
+						<label for="telefone" class="p-col-fixed" style="width: 100px">Telefone</label>
+						<div class="p-col">
+							<p:inputText id="telefone" value="#{reservaBean.reserva.telefone}" required="true" requiredMessage="Campo 'Telefone' é obrigatório" >
+								<f:ajax event="blur" render="messages" />
+							</p:inputText>
+						</div>
+					</div>
+					<h2>Método de pagamento</h2>
+					<div class="p-field p-grid">
+						<label for="cartao" class="p-col-fixed" style="width: 100px">Cartão
+							de crédito</label>
+						<div class="p-col">
+							<p:inputText id="cartao" value="#{reservaBean.reserva.cartao}" required="true" requiredMessage="Campo 'Cartão de crédito' é obrigatório">
+								<f:ajax event="blur" render="messages" />
+							</p:inputText>
+						</div>
+					</div>
+					<h2>Reserva</h2>
+					<p:selectOneRadio id="console" unselectable="true">
+						<f:selectItem itemLabel="IBIS Styles São Paulo Anhembi" itemValue="Option1" />
+						<f:selectItem itemLabel="Confort Ibirapuera" itemValue="Option2" />
+						<f:selectItem itemLabel="Blue Tree Premium Morumbi" itemValue="Option3" />
+						<f:selectItem itemLabel="Mercure São Paulo Pamplona" itemValue="Option4" />
+					</p:selectOneRadio>
+				</div>
+			</h:form>
+
+			<f:facet name="footer">
+				<p:commandButton icon="pi pi-check" value="Reservar" styleClass="rounded-button" action="#{reservaBean.save}" >
+					<f:ajax execute="@form" render="messages" />
+				</p:commandButton>
+			</f:facet>
+
+		</p:card>
+
+		<div class="card">
+			<h:form id="form">
+				<p:dataTable id="reservas" var="reserva" value="#{reservaBean.reservas}">
+					<f:facet name="header">
+               		Lista de reservas
+            </f:facet>
+
+
+					<p:column headerText="Nome">
+						<h:outputText value="#{reserva.nome}" />
+					</p:column>
+					<p:column headerText="E-mail">
+						<h:outputText value="#{reserva.email}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>

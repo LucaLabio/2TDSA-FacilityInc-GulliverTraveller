@@ -1,0 +1,13 @@
+package br.com.fiap.rest;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+@Path("/reservas")
+public class ReservaEndpoint {
+	
+	@GET
+	public void executar() {
+		System.out.println("Executando via api");
+	}
+}
